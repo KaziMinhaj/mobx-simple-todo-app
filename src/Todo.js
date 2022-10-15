@@ -14,6 +14,11 @@ class Todo{
     {
         this.todoList.push(todo);
     }
+
+    Delete(id)
+    {
+        this.todoList = this.todoList.filter((item) => item.id != id)
+    }
 }
 
 export const todo = new Todo();

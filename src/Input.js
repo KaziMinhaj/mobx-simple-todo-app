@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import { observer } from "mobx-react-lite"
 import {todo} from "./Todo"
+import { nanoid } from 'nanoid';
 
 const Input = observer(() => {
     const [state, setState] = useState("")
@@ -9,7 +10,7 @@ const Input = observer(() => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        todo.AddToList(state);
+        todo.AddToList({id: nanoid(), content: state});
         setState("")
     }
     return (
